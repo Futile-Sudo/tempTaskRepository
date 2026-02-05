@@ -1,4 +1,5 @@
 Temporary repository for a test assignment. Convert from ASCII HEX to BIN and vice versa.
+
 -a Convert ASCII HEX to BIN;
 -b Convert BIN to ASCII HEX;
 -h Show help info
