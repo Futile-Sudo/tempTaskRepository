@@ -43,11 +43,11 @@ int convertHexFileToBin(const char* input, const char* output)
         if (isspace(c))
             continue;
 
-        high = charToHex((char)c);
+        high = charToHex((unsigned char)c);
         if (high < 0 || (c = fgetc(in)) == EOF)
             break;
 
-        low = charToHex((char)c);
+        low = charToHex((unsigned char)c);
         if (low < 0)
             break;
 
