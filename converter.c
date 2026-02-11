@@ -1,13 +1,19 @@
 #include "converter.h"
 #include <stdio.h>
 #include <ctype.h>
-int charToHex(char c)
-{
-    if (c >= '0' && c <= '9') return c - '0';
-    if (c >= 'a' && c <= 'f') return c - 'a' + 10;
-    if (c >= 'A' && c <= 'F') return c - 'A' + 10;
 
-    return -1;
+const signed char hexTable[256] = 
+{
+    ['1'] = 1, ['2'] = 2, ['3'] = 3, ['4'] = 4, ['5'] = 5,    
+    ['6'] = 6,  ['7'] = 7, ['8'] =8, ['9'] = 9, ['a'] = 10, ['b'] = 11,    
+    ['c'] = 12,  ['d'] = 13, ['e'] = 14, ['f'] = 15, 
+    ['A'] = 10, ['B'] = 11, ['C'] = 12,  ['D'] = 13, ['E'] = 14, ['F'] = 15, 
+};
+
+int charToHex(unsigned char c)
+{
+    if (c == '0') return 0;
+    return hexTable[c] ? hexTable[c] : -1;
 }
 
 int convertHexFileToBin(const char* input, const char* output)
